@@ -4,11 +4,10 @@ import { SimpleIntroProps } from "../extras/types";
 import { ColorContext } from "../extras/ColorContext";
 
 function SimpleIntro(props: SimpleIntroProps) {
-  const targetDivRef = useRef();
   const colorContex = useContext(ColorContext);
-  
+
   function callToActionClicked() {
-    colorContex.setColor("white");
+    colorContex.setPoint(colorContex.point + 1);
   }
 
   return (

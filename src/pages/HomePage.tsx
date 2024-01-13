@@ -31,7 +31,7 @@ import { Link } from "react-router-dom";
 import ReactJson from "react-json-view";
 
 const BASE_API_URL =
-  "http://192.168.1.88:9999/extras/v1/api/parsing/whois-lookup?siteUrl=";
+  "https://appnor-backend.onrender.com/extras/v1/api/parsing/whois-lookup?siteUrl=";
 
 const sampleResponse = {
   domain: "geekyants.com",
@@ -115,7 +115,7 @@ function HomePage(props: any) {
   useEffect(() => {
     scrollToDiv();
     return () => {};
-  }, [colorContex.color]);
+  }, [colorContex.point]);
 
   const handleClose = () => {
     setOpen(false);
@@ -131,7 +131,7 @@ function HomePage(props: any) {
       return;
     }
     if (videoUrl === "" || !videoUrl.startsWith("https://www")) {
-      alert("A Valid Website URL[https://www] is Required!!");
+      alert("A Valid Website URL [https://www] is Required!!");
       return;
     }
     handleOpen();
@@ -178,10 +178,6 @@ function HomePage(props: any) {
     setIsTermsAggred(checked);
   }
 
-  function scrollToDiv() {
-    scrollRef.current.scrollIntoView();
-  }
-
   function flattenResponse(response: Root): [string, any][] {
     const flattenedArray: [string, any][] = [];
 
@@ -216,6 +212,13 @@ function HomePage(props: any) {
     </React.Fragment>
   );
 
+  function scrollToDiv() {
+    if (colorContex.point !== 0) {
+      scrollRef.current.scrollIntoView({ behavior: "smooth" });
+      colorContex.setPoint(0);
+    }
+  }
+
   function heading(key: string, value: string): JSX.Element {
     return (
       <Link target="_blank" to={value}>
@@ -233,8 +236,9 @@ function HomePage(props: any) {
     >
       {backdrop}
       <FeatureIntro
-        heading="Only screenshot capturer tool you need"
-        desc="Ditch generic keywords and discover powerful, untapped gems with our advanced scraper. Say goodbye to endless brainstorming and hello to targeted content that dominates search engines. No more tedious manual research. Automate your keyword discovery, freeing up your time for crafting content that truly shines."
+        heading="Supercharged WHOIS Lookup Tool!⚡️"
+        desc="Tired of limited insights and paywalls? Dive deep into 50+ data points with just a click – absolutely FREE! Whether you're researching competitors, checking website ownership, or scouting for domains, we've got the insights you need to make informed decisions. Simply type in a domain name, and we'll reveal a treasure trove of information"
+        subheading="Unlock the power of unlimited domain knowledge – for FREE! Start exploring today! ➡️"
       />
       <div className="flex flex-col items-center border border-gray-400 shadow-lg p-4">
         <TextField
@@ -242,7 +246,7 @@ function HomePage(props: any) {
           value={videoUrl}
           onChange={handleChange}
           id="url-input"
-          label="Enter Website Link To Capture"
+          label="Enter Domain Address"
           variant="outlined"
         />
 
@@ -251,7 +255,7 @@ function HomePage(props: any) {
           sx={{ marginTop: "20px", marginBottom: "10px", width: "200px" }}
           variant="contained"
         >
-          Take Screenshot
+          Whois Lookup
         </Button>
         <Button
           onClick={visitWebsite}
@@ -261,14 +265,14 @@ function HomePage(props: any) {
           Visit Website
         </Button>
         <h3 className="text-xs text-center w-80 m-2">
-          A direct list of result will get triggered if file has only one format
-          else a list of downloadable file will get presented.
+          You agree to use this tool for legitimate purposes only, respecting
+          user privacy and avoiding misuse of location data.
         </h3>
         <div className="flex items-center justify-center">
           <Checkbox onChange={(e) => handleCheckboxChange(e.target.checked)} />
-          <h3 className="text-xs text-center m-2">
-            By capturing screenshot of 3rd party websites you agree to our terms
-            & conditions for fair usages policy
+          <h3 className="text-xs text-center">
+            We provide the data "as is" with no guarantees of accuracy or
+            completeness. Use it at your own risk and comply with relevant laws.
           </h3>
         </div>
         <Divider color="black" />
@@ -301,7 +305,7 @@ function HomePage(props: any) {
       {isDownloadSuccess && (
         <div className="w-screen">
           <ReactJson
-            style={{ overflowX: "scroll" }}
+            style={{ overflowX: "scroll", paddingTop: "5px" }}
             src={audioResponse}
             enableClipboard={true}
             displayObjectSize={true}

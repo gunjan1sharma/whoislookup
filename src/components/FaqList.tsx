@@ -9,28 +9,28 @@ function FaqList(props: any) {
         style={{ borderBottomWidth: "1px", borderBottomColor: "lightgray" }}
       />
       <FaqComponent
-        faq="What kind of websites can I analyze with your tool?"
-        answer="Our tool can extract keywords from virtually any publicly accessible website, regardless of its content or structure."
+        faq="What type of information can I expect to find with your WHOIS lookup tool?"
+        answer="Ownership Details: Registrant name, organization, address, email. Registration Dates: Creation date, expiration date, last updated. Contact Information: Administrative, technical, and billing contacts. Domain Status: Active, inactive, expired, or pending delete. Technical Data: Registrar, DNS servers, IP addresses"
       />
       <FaqComponent
-        faq="How many keywords will your tool extract from a website?"
-        answer="The number of extracted keywords depends on the website's length and content richness. You'll typically see a list of the most relevant and frequently used keywords."
+        faq="How accurate and up-to-date is your data?"
+        answer="We prioritize accuracy and rely on real-time WHOIS registries for the freshest information. However, some data might be redacted for privacy or subject to delays in updates."
       />
       <FaqComponent
-        faq="How accurate is your keyword extraction process?"
-        answer="We utilize advanced algorithms to accurately identify and prioritize keywords based on their relevance and prominence within the website's content."
+        faq="Are there any limitations or restrictions on free usage?"
+        answer="We encourage responsible use, and to ensure a seamless experience for all, we might occasionally introduce reasonable limits on daily or monthly queries. Contact us if you have specific needs exceeding these limits."
       />
       <FaqComponent
-        faq="Can I filter the extracted keywords in any way?"
-        answer="Yes, you can filter keywords based on factors like word count, frequency, or specific phrases to refine your results and focus on the most relevant terms"
+        faq="How do you handle privacy and data protection?"
+        answer="We respect user privacy and comply with data protection regulations. We never store personal information from WHOIS lookups beyond necessary technical processing."
       />
       <FaqComponent
-        faq="Can I export the extracted keywords for further analysis?"
-        answer="Absolutely! You can easily export the keyword list in various formats, such as CSV or Excel, for integration into your preferred SEO tools or content strategies"
+        faq="Is your tool free to use, or are there paid plans?"
+        answer="Our basic WHOIS lookup features with 40+ data points are absolutely free! We also offer affordable paid plans for high-volume users or those seeking advanced features."
       />
       <FaqComponent
-        faq="Does your tool have any limitations in terms of website size or complexity?"
-        answer="We've designed our tool to handle even large and complex websites efficiently. However, if you encounter any issues, please don't hesitate to contact our support team."
+        faq="What if I need more information or have specific questions?"
+        answer="Our support team is always happy to assist! Feel free to reach out if you have any questions or require further assistance. [ info@geekforce.in | gunjan@geekforce.in ]"
       />
     </div>
   );
